@@ -1,0 +1,72 @@
+FDS_Assignment_2
+Here are all the tasks from Question 1: MapReduce Workflow for Social Media Analytics, explained step-by-step:
+
+✅ Task 1: Data Cleansing and Parsing Goal: Parse each record in social_media_logs.txt, discard malformed data, and emit valid structured output.
+
+Steps: Mapper Script (mapper_task1.py)
+
+Split each record by tab.
+
+Validate timestamp format.
+
+Parse JSON metadata.
+
+Count and log invalid records using print/log.
+
+Simulate Locally or in Colab:
+
+📊 Task 2: Action Aggregation and Sorting Goal: Count action types per user (posts, likes, comments, shares) and sort by post count.
+
+Steps: Mapper Script (mapper_task2.py)
+
+Emit key-value pairs: (user_id, action_type).
+
+Reducer Script (reducer_task2.py)
+
+Aggregate action counts for each user.
+
+Output format: user_id\tposts:N,likes:N,....
+
+Execute in Colab or Bash:
+
+🔥 Task 3: Trending Content Identification Goal: Identify trending content based on (likes + shares) with threshold.
+
+Steps: Mapper Script (mapper_task3.py)
+
+Emit content_id and 1 for each like or share.
+
+Reducer Script (reducer_task3.py)
+
+Sum likes and shares.
+
+Apply a threshold (e.g., >50 interactions).
+
+Execution:
+
+🔗 Task 4: Join with User Profiles Goal: Join user activity data (user_actions.txt) with user_profiles.txt.
+
+Steps: Clean Headers:
+
+Join Scripts:
+
+join_profile_mapper.py
+
+join_activity_mapper.py
+
+join_reducer.py
+
+Execution:
+
+🚀 Task 5: Performance Optimization & Monitoring Goal: Enhance performance and fault-tolerance.
+
+Optimizations: Use combiners to reduce shuffle volume.
+
+Use efficient data structures (e.g., defaultdict, Counter).
+
+Tune cluster configuration (e.g., number of reducers, heap size).
+
+Monitoring: Use Hadoop counters to log invalid and processed records.
+
+Use logs to track memory, time.
+
+For cloud: use Cloud Monitoring, Cloud Logging (in GCP).
